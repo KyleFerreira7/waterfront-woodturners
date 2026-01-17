@@ -1,0 +1,899 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: "Gowun Batang", serif;
+  background-color: #f9f5f0;
+  color: #2d2d2d;
+  font-weight: 400;
+}
+
+/* NAVBAR */
+
+.navbar {
+  background-color: #f9f5ef;
+  border-bottom: 1px solid #e6e0d6;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo Styling --- */
+.logo img {
+  height: 80px;          /* Adjust as needed */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 45px;        /* smaller on mobile */
+  }
+  .navbar {
+      padding-top: 3rem;
+  }
+}
+
+
+/* Logo */
+.logo {
+  font-family: "Gowun Batang", serif;
+  font-size: 1.5rem;
+  color: #2e2a27;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;        /* removes bullets */
+  padding: 0;              /* removes default list padding */
+  margin: 0;               /* removes any browser margin */
+  display: flex;
+  gap: 2rem;               /* spacing between links */
+  margin-left: 2rem;       /* optional: push it away from the left edge */
+}
+
+
+
+.nav-links a {
+  text-decoration: none;
+  color: #2e2a27;
+  font-family: "Gowun Batang", serif;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #6c5a4b;
+}
+
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-icons img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.social-icons img:hover {
+  opacity: 1;
+}
+
+/* --- MOBILE NAVIGATION (FINAL VERSION) --- */
+.hamburger-menu {
+  position: relative;
+  display: none; /* hidden on desktop */
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* 👈 ensures it's top-right aligned */
+}
+
+.hamburger-icon span {
+  height: 2px;
+  width: 100%;
+  background-color: #2e2a27;
+  transition: all 0.3s ease;
+}
+
+/* Toggle to X */
+.hamburger-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 5px);
+}
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -5px);
+}
+
+/* Dropdown */
+.menu-links {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f5ef;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 180px;
+  border: 1px solid #e6e0d6;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.menu-links.open {
+  display: flex;
+}
+
+.menu-links li {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.menu-links a {
+  text-decoration: none;
+  color: #2e2a27;
+  font-weight: 500;
+}
+
+.menu-links a:hover {
+  color: #8a4a1d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .social-icons {
+    display: none;
+  }
+}
+
+
+
+
+
+/* HERO SECTION */
+
+/* --- Hero Logo --- */
+.hero-logo {
+  height: 180px;             
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduce logo size for smaller screens */
+@media (max-width: 768px) {
+  .hero-logo {
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    height: 70px;
+  }
+}
+
+
+
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background-color: #f9f5ef;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 60vh; /* try 60 for balanced, 55 for shorter, 65 for a bit taller */
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.hero .site-title {
+  font-family: "Gowun Batang", serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #2e2a27;
+}
+
+.hero .subtitle {
+  font-family: "Gowun Batang", serif;
+  font-size: 1.2rem;
+  color: #6c5a4b;
+  margin-bottom: 1.8rem;
+}
+
+.cta-link {
+  text-decoration: underline;
+  color: #2e2a27;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.cta-link:hover {
+  color: #8a4a1d;
+}
+
+/* Remove old announcement styling if it exists */
+.announcement {
+  display: none;
+}
+
+
+/* --- WHAT WE DO SECTION --- */
+.what-we-do {
+  background-color: #f9f5f0;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.section-title {
+  font-size: 3rem;        /* larger title */
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.section-intro .label {
+  font-size: 1rem;
+  color: #6c4a36;
+  margin-bottom: 0.5rem;
+}
+
+.section-intro .description {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto 5rem auto;
+  line-height: 1.7;
+  color: #2d2d2d;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 4rem 6rem;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr; /* stack vertically on mobile */
+    gap: 3rem;
+  }
+}
+
+
+.info-block {
+  max-width: 300px;
+}
+
+.info-block .label {
+  color: #6c4a36;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.info-block h3 {
+  font-size: 1.4rem;      /* larger main text */
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.info-block p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-grid {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+/* Fade-in animation setup */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* --- IMAGE BLOCK SECTION --- */
+.image-block {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background-color: #f9f5f0;  /* keeps the same tone as the page */
+}
+
+.image-block {
+  padding: 7rem 2rem;
+  border-radius: 16px;
+}
+
+
+.image-block img {
+  width: 90%;                /* narrower than full width */
+  max-width: 1600px;         /* prevents stretching on ultrawide screens */
+  border-radius: 12px;       /* rounded corners */
+  object-fit: cover;
+  transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+/* === FROM THE WORKSHOP SECTION === */
+
+.latest-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.latest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.latest-card {
+  background-color: transparent;
+  border: 1px solid #e0ddd6;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1 1 calc(33.333% - 2rem); /* 3 per row */
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.latest-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.latest-info {
+  padding: 1rem 1.5rem;
+}
+
+.latest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Large featured card */
+.latest-card.large {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.latest-card.large img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.latest-card.large .latest-info {
+  text-align: left;
+  padding: 2rem;
+}
+
+/* --- RESPONSIVENESS --- */
+
+/* Tablet: 2 per row */
+@media (max-width: 1024px) {
+  .latest-card {
+    flex: 1 1 calc(50% - 1.5rem);
+  }
+
+  .latest-card.large {
+    flex-direction: column;
+  }
+
+  .latest-card.large img {
+    width: 100%;
+  }
+}
+
+/* Mobile: stack all vertically */
+@media (max-width: 768px) {
+  .latest-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .latest-card {
+    flex: 1 1 100%;
+  }
+
+  .latest-card.large {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .latest-card.large .latest-info {
+    padding: 1.5rem;
+  }
+}
+
+
+
+/* Info area */
+.latest-info {
+  padding: 1.5rem 2rem;
+}
+
+.latest-info .label {
+  font-size: 0.9rem;
+  color: #7b4b2a;
+  margin-bottom: 0.5rem;
+}
+
+.latest-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #2d2d2d;
+}
+
+.latest-info p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .latest-card.large {
+    flex-direction: column;
+  }
+  .latest-card.large img {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  background-color: #4b4642; /* You can adjust this to match your palette */
+  color: #f9f5f0;
+  padding: 4rem 2rem 2rem 2rem;
+  font-family: 'Gowun Batang', serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Social icons */
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-socials img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
+}
+
+.footer-socials img:hover {
+  opacity: 0.7;
+}
+
+/* Quote + credit */
+.footer-quote {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.footer-credit {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Right side (contact info) */
+.footer-right p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.footer-right a {
+  color: #f9f5f0;
+  text-decoration: none;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-right {
+    margin-top: 2rem;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+
+/* --- WOODTURNERS PAGE --- */
+
+.woodturner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  border-bottom: 1px solid #e6dfd5;
+}
+
+.turner-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.turner-photo {
+  width: 380px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.turner-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.turner-text h2 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 2.4rem;
+  color: #2c2520;
+}
+
+.turner-text p {
+  color: #4a4037;
+  line-height: 1.6;
+}
+
+.contact-info {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #3c3c3c;
+}
+
+.highlight-gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.piece {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.piece img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.piece img:hover {
+  transform: scale(1.03);
+}
+
+.piece p {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #3d3027;
+}
+
+/* Fade in animation same as homepage */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.woodturner:nth-child(even) .turner-info {
+  flex-direction: row-reverse;
+}
+
+
+/* --- GALLERY SECTION --- */
+
+.gallery {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f5f1; /* match your site background */
+}
+
+.gallery-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 2.2rem;
+  color: #2c2520;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-subtitle {
+  font-size: 1.1rem;
+  color: #6b5d52;
+  margin-bottom: 3rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Each image item */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover lift */
+.gallery-item:hover {
+  transform: translateY(-6px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+.gallery-caption {
+  font-family: 'Gowun Batang', serif;
+  font-size: 1rem;
+  color: #3e332c;
+  margin-top: 0.8rem;
+}
+
+/* Responsive grid */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Fade-in animation consistency */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* --- Tablet layout (medium screens) --- */
+@media (max-width: 1024px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .hero .site-title {
+    font-size: 2.4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .turner-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .turner-photo {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* --- Mobile layout (small screens) --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero .site-title {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-gallery,
+  .turner-info {
+    flex-direction: column;
+  }
+
+  .turner-photo {
+    width: 100%;
+  }
+}
+
+/* --- Very large screens (optional) --- */
+@media (min-width: 1600px) {
+  body {
+    font-size: 1.1rem;
+  }
+
+  .gallery-grid {
+    gap: 2.5rem;
+  }
+
+  .hero .site-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* --- Fix hamburger positioning --- */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+    position: absolute; /* make it position relative to the viewport */
+    top: 20px;
+    right: 20px; /* 👈 ensures top-right alignment */
+    z-index: 2000;
+  }
+
+  .hamburger-icon {
+    position: relative; /* reset from absolute */
+    top: auto;
+    right: auto;
+  }
+}
